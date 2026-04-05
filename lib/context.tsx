@@ -48,6 +48,7 @@ export function FinanceProvider({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setSidebarOpenState] = useState(false);
   const [editingTransaction, setEditingTransactionState] = useState<Transaction | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDataLoaded, setIsDataLoaded] = useState(false); // Track if initial load is done
   const [currentPage, setCurrentPageState] = useState(1);
   const [itemsPerPage, setItemsPerPageState] = useState(10);
   const [filter, setFilterState] = useState<FilterState>({
@@ -65,11 +66,7 @@ export function FinanceProvider({ children }: { children: React.ReactNode }) {
 
   // Load state from localStorage on mount
   useEffect(() => {
-    const loadData = async () => {
-      setIsLoading(true);
-      // Simulate API fetch delay
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
+    const loadData = () => {
       const savedState = localStorage.getItem(STORAGE_KEY);
       if (savedState) {
         try {
@@ -81,16 +78,17 @@ export function FinanceProvider({ children }: { children: React.ReactNode }) {
           console.error('Failed to load state from localStorage:', error);
         }
       }
-      setIsLoading(false);
+      setTimeout(() => setIsDataLoaded(true), 0);
     };
 
     loadData();
   }, []);
 
-  // Save state to localStorage when transactions, role or itemsPerPage changes
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ transactions, role, itemsPerPage }));
-  }, [transactions, role, itemsPerPage]);
+    if (isDataLoaded) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ transactions, role, itemsPerPage }));
+    }
+  }, [transactions, role, itemsPerPage, isDataLoaded]);
 
   const setRole = useCallback((newRole: Role) => {
     setRoleState(newRole);
