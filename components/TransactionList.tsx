@@ -3,7 +3,7 @@
 import { useFinance } from '@/lib/context';
 import { formatCurrency, cn } from '@/lib/utils';
 import { format } from 'date-fns';
-import { ArrowUpRight, ArrowDownLeft, Trash2, Edit2, Search, ExternalLink, MoreVertical, ChevronLeft, ChevronRight, Calendar as CalendarIcon, X } from 'lucide-react';
+import { ArrowUpRight, ArrowDownLeft, Trash2, Edit2, Search, ExternalLink, ChevronLeft, ChevronRight, Calendar as CalendarIcon, X } from 'lucide-react';
 import { useIsHydrated } from '@/lib/use-is-hydrated';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -159,11 +159,11 @@ export default function TransactionList() {
   }
 
   return (
-    <div className="premium-card overflow-hidden">
+    <div className="premium-card overflow-hidden shadow-none">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 px-6 py-6 border-b bg-card/50">
         <div>
-          <h2 className="text-xl font-bold tracking-tight">Recent Transactions</h2>
-          <p className="text-sm text-muted-foreground font-medium">Your financial activity overview</p>
+          <h2 className="text-xl font-medium tracking-tight">Recent Transactions</h2>
+          <p className="text-sm text-muted-foreground font-normal">Your financial activity overview</p>
         </div>
         
         <div className="flex flex-wrap items-center gap-3">
@@ -294,7 +294,7 @@ export default function TransactionList() {
                   </TableCell>
                   {role === 'Admin' && (
                     <TableCell className="text-right pr-6">
-                      <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-2 group-hover:translate-x-0">
+                      <div className="flex items-center justify-end gap-1 opacity-100 translate-x-0 lg:opacity-0 lg:translate-x-2 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 transition-all duration-200">
                         <Button 
                           variant="ghost"
                           size="icon"

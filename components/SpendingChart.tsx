@@ -21,14 +21,14 @@ import {
 
 // Sophisticated Premium Palette
 const COLORS = [
-  "var(--brand)",
+  "var(--color-brand)",
   "#10b981", // Emerald
   "#6366f1", // Indigo
   "#f59e0b", // Amber
   "#8b5cf6", // Violet
   "#ec4899", // Pink
   "#42f5ef", // Turquoise
-  "#ebe244",
+  "#ff8629",
 ];
 
 export default function SpendingChart() {

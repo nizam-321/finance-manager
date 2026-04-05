@@ -189,7 +189,7 @@ export default function TransactionForm() {
                     variant={formData.type === 'income' ? 'secondary' : 'ghost'}
                     onClick={() => setFormData({ ...formData, type: 'income' })}
                     className={cn(
-                         "flex-1 transition-all duration-300",
+                         "flex-1",
                            formData.type === 'income' 
                            ? "bg-emerald-500 text-white hover:bg-emerald-600" 
                           : "text-muted-foreground hover:bg-emerald-500/10 hover:text-emerald-600" 
@@ -202,7 +202,7 @@ export default function TransactionForm() {
                     variant={formData.type === 'expense' ? 'secondary' : 'ghost'}
                     onClick={() => setFormData({ ...formData, type: 'expense' })}
                      className={cn(
-                          "flex-1 transition-all duration-300",
+                          "flex-1",
                           formData.type === 'expense' 
                           ? "bg-rose-500 text-white hover:bg-rose-600" 
                           : "text-muted-foreground hover:bg-rose-500/10 hover:text-rose-600" 
@@ -218,10 +218,10 @@ export default function TransactionForm() {
               <Button
                 disabled={isLoading}
                 type="submit"
-                className="w-full py-6 rounded-xl"
+                className="w-full py-6 rounded-xl cursor-pointer"
               >
                 {isLoading && (
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white/30  border-t-white rounded-full animate-spin" />
                 )}
                 {editingTransaction ? 'Update Transaction' : 'Save Transaction'}
               </Button>

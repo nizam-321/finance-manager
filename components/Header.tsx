@@ -2,12 +2,11 @@
 
 
 import { useFinance } from '@/lib/context';
-import { User, Shield, Eye, Bell, Menu, X, Search, ChevronDown, Moon, Sun, LogOut, Settings } from 'lucide-react';
+import { User, Shield, Eye, Bell, Menu, X, ChevronDown, Moon, Sun, LogOut, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsHydrated } from '@/lib/use-is-hydrated';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,15 +34,6 @@ export default function Header() {
         >
           {isSidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </Button>
-        
-        <div className="hidden md:flex items-center max-w-md w-full relative group">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
-          <Input 
-            type="text" 
-            placeholder="Search transactions, insights..." 
-            className="pl-10 h-10"
-          />
-        </div>
       </div>
 
       {/* Right Section: Role Toggle, Notifications, Profile */}

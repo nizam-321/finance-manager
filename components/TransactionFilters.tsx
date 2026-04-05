@@ -52,12 +52,12 @@ export default function TransactionFilters() {
           />
         </div>
         
-        <div className="flex items-center gap-3 w-full md:w-auto">
+        <div className="flex flex-wrap items-center gap-2 md:gap-3 w-full md:w-auto">
           <Select
             value={filter.category}
             onValueChange={(value) => setFilter({ category: value as any })}
           >
-            <SelectTrigger className="h-11 min-w-[160px] rounded-xl font-normal bg-muted/30 border-none focus:ring-1 focus:ring-brand/20">
+            <SelectTrigger className="h-11 flex-1 md:min-w-[160px] rounded-xl font-normal bg-muted/30 border-none focus:ring-1 focus:ring-brand/20 hover:bg-muted/50  transition-all duration-200 cursor-pointer ">
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent className="rounded-xl p-1">
@@ -71,7 +71,7 @@ export default function TransactionFilters() {
             value={filter.type}
             onValueChange={(value) => setFilter({ type: value as any })}
           >
-            <SelectTrigger className="h-11 min-w-[140px] rounded-xl font-normal bg-muted/30 border-none focus:ring-1 focus:ring-brand/20">
+            <SelectTrigger className="h-11 flex-1 md:min-w-[140px] rounded-xl font-normal bg-muted/30 border-none focus:ring-1 focus:ring-brand/20 hover:bg-muted/50  transition-all duration-200 cursor-pointer">
               <SelectValue placeholder="Type" />
             </SelectTrigger>
             <SelectContent className="rounded-xl p-1">
@@ -83,13 +83,13 @@ export default function TransactionFilters() {
 
           <div className="h-8 w-px bg-border/50 mx-1 hidden lg:block" />
 
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest hidden lg:block">Show</span>
+          <div className="flex items-center  gap-2">
+            {/* <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest hidden lg:block">Show</span> */}
             <Select
               value={itemsPerPage.toString()}
               onValueChange={(value) => setItemsPerPage(parseInt(value))}
             >
-              <SelectTrigger className="h-11 min-w-[80px] rounded-xl font-normal bg-muted/30 border-none focus:ring-1 focus:ring-brand/20">
+              <SelectTrigger className="h-11 flex-1 md:min-w-[80px] rounded-xl font-normal bg-muted/30 border-none focus:ring-1 focus:ring-brand/20 hover:bg-muted/50  transition-all duration-200 cursor-pointer">
                 <SelectValue placeholder="Count" />
               </SelectTrigger>
               <SelectContent className="rounded-xl p-1">

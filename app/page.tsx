@@ -123,7 +123,7 @@ export default function Home() {
           <h3 className="text-xl font-bold text-slate-900 tracking-tight">Recent Activity</h3>
           <TransactionForm />
         </div>
-        <div className="p-6 rounded-[32px]">
+        <div className="rounded-[32px]">
           <TransactionFilters />
           <TransactionList />
         </div>
